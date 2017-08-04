@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cross word Puzzle</title>
+<style>
+#cross{
+	text-align: center;
+	width:30px;
+	height:30px;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	border: 1px solid white;
+}
+#buttons{
+	width:30%;
+	float: right;
+}
+tr{
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+td{
+	height: 30px;
+	width: 30px;
+}
+#leftBox{
+	float: left;
+}
+#rightBox{
+	float: left;
+	clear:left;
+}
+.butt{
+	height:50px;
+	width: 107px;
+}
+#puzzel{
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+.inputBox{
+		width: 40px;
+		height:40px;
+		border: 1px solid black;
+		text-align: center;
+}
+#hintsTable{
+	width: 480px;
+	float: left;
+	clear: left;
+}
+
+@keyframes animationName {
+from {margin-left:-30%;}
+}
+</style>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+//Globals
+var currentTextInput;
+var puzzelArrayData;
+//Loads the Crossword
+function initializeScreen(){
+	var puzzelTable = document.getElementById("puzzel");
+	puzzelArrayData = preparePuzzelArray();
+	for ( var i = 0; i < puzzelArrayData.length ; i++ ) {
+		var row = puzzelTable.insertRow(-1);
+		var rowData = puzzelArrayData[i];
+		for(var j = 0 ; j < rowData.length ; j++){
+			var cell = row.insertCell(-1);
+			if(rowData[j] != 0){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+			}else{
+				cell.style.backgroundColor  = "black";
+			}
+		}
+	}
+	addHint();
+}
+//Adds the hint numbers
+function addHint(){
+	document.getElementById("txt_0_0").placeholder = "1";
+	document.getElementById("txt_0_1").placeholder = "2";
+	document.getElementById("txt_0_2").placeholder = "3";
+	document.getElementById("txt_0_3").placeholder = "4";
+	document.getElementById("txt_0_4").placeholder = "5";
+	document.getElementById("txt_0_5").placeholder = "6";
+	document.getElementById("txt_1_0").placeholder = "2";
+	document.getElementById("txt_2_0").placeholder = "3";
+	document.getElementById("txt_3_0").placeholder = "4";
+	document.getElementById("txt_0_11").placeholder = "7";
+	document.getElementById("txt_0_13").placeholder = "8";
+	document.getElementById("txt_1_9").placeholder = "5";
+	document.getElementById("txt_2_7").placeholder = "6";
+	document.getElementById("txt_4_9").placeholder = "7";
+	document.getElementById("txt_6_3").placeholder = "8";
+	document.getElementById("txt_6_7").placeholder = "9";
+	document.getElementById("txt_6_13").placeholder = "10";
+	document.getElementById("txt_8_9").placeholder = "9";
+	document.getElementById("txt_8_14").placeholder = "11";
+	document.getElementById("txt_9_3").placeholder = "12";
+	document.getElementById("txt_9_5").placeholder = "13";
+	document.getElementById("txt_10_0").placeholder = "10";
+	document.getElementById("txt_11_0").placeholder = "11";
+	document.getElementById("txt_12_0").placeholder = "12";
+	document.getElementById("txt_13_0").placeholder = "13";
+	document.getElementById("txt_14_0").placeholder = "14";
+	document.getElementById("txt_10_1").placeholder = "14";
+	document.getElementById("txt_10_2").placeholder = "15";
+	document.getElementById("txt_12_5").placeholder = "16";
+	document.getElementById("txt_11_5").placeholder = "15";
+	document.getElementById("txt_11_12").placeholder = "17";
+	document.getElementById("txt_12_9").placeholder = "18";
+	document.getElementById("txt_13_9").placeholder = "19";
+	document.getElementById("txt_14_9").placeholder = "20";
+	document.getElementById("txt_12_10").placeholder = "19";
+	document.getElementById("txt_12_11").placeholder = "20"; 	
+	document.getElementById("txt_11_13").placeholder = "21"; 	
+}
+//Stores ID of the selected cell into currentTextInput
+function textInputFocus(txtID123){
+	currentTextInput = txtID123;
+}
+//Returns Array
+function preparePuzzelArray(){
+var items = [	['A', 'P', 'A', 'C', 'H', 'E', 0, 0, 0, 0,0,'U',0,'R',0],
+				['P', 'O', 'S', 'H', 'E', 'R', 0, 0, 0, 'R','U','S','T','I','C'],
+				['P', 'O', 'K', 'I', 'N', 'G', 0, 'C', 'U', 'E',0,'A',0,'S',0],
+				['S', 'H', 'A', 'M', 'S', 0, 0, 0, 0, 'C',0,'G',0,'K',0],
+				[0, 0, 0, 'E', 0, 0, 0, 0, 0, 'A','V','E','O',0,0],
+				[0, 0, 0, 0, 0, 0, 0, 0, 0, 'S',0,0,0,0,0],
+				[0, 0, 0, 'B', 'I', 'R', 'T', 'H', 'S', 'T','O','N','E','S',0],
+				[0, 0, 0, 0, 0, 0, 0, 'A', 0, 0,0,0,0,'O',0],
+				[0, 0, 0, 0, 0, 0, 0, 'P', 0, 'P','S','E','U','D','O'],
+				[0, 0, 0, 'M', 0, 'I', 0, 'P', 0, 0,0,0,0,'A','F'],
+				['G', 'R', 'E', 'E', 'N', 'D', 'A', 'Y', 0, 0,0,0,0,0,'F'],
+				['E', 'O', 'R', 'L', 0, 'Y', 'M', 'C', 'A', 0,0,0,'T','H','E'],
+				['C', 'U', 'R', 'D', 0, 'L', 'I', 'A', 0, 'C','A','R','E','E','N'],
+				['K', 'E', 'E', 0, 0, 0, 0, 0, 0, 'A','B','U','S','E','S'],
+				['O', 'S', 'D', 0, 0, 0, 0, 0, 0, 'N','E','T','T','L','E']
+			];
+return items;
+}
+//Clear All Button
+function clearAllClicked(){
+	currentTextInput = '';
+	var puzzelTable = document.getElementById("puzzel");
+	puzzelTable.innerHTML = '';
+    initializeScreen();
+}
+//Check button
+function checkClicked(){
+	for ( var i = 0; i < puzzelArrayData.length ; i++ ) {
+		var rowData = puzzelArrayData[i];
+		for(var j = 0 ; j < rowData.length ; j++){
+			if(rowData[j] != 0){
+				var selectedInputTextElement = document.getElementById('txt' + '_' + i + '_' + j);
+				if(selectedInputTextElement.value != puzzelArrayData[i][j]){
+					selectedInputTextElement.style.backgroundColor = 'red';
+					
+				}else{
+					selectedInputTextElement.style.backgroundColor = 'white';
+				}
+			}
+		}
+	}
+}
+//Clue Button
+function clueClicked(){
+	if (currentTextInput != null){
+		var temp1 = currentTextInput;
+		var token = temp1.split("_");
+		var row = token[1];
+		var column = token[2];
+		document.getElementById(temp1).value = puzzelArrayData[row][column];
+		//checkClicked();
+	}
+}
+//Solve Button
+function solveClicked(){
+	if (currentTextInput != null){
+		var temp1 = currentTextInput;
+		var token = temp1.split("_");
+		var row = token[1];
+		var column = token[2];
+		
+		// Print elements on top
+		for(j = row; j >= 0; j--){
+			if(puzzelArrayData[j][column] != 0){
+				document.getElementById('txt' + '_' + j + '_' + column).value = puzzelArrayData[j][column];
+				}else break;
+		}
+		// Print elements on right
+		for(i = column; i< puzzelArrayData[row].length; i++){
+			if(puzzelArrayData[row][i] != 0){
+				document.getElementById('txt' + '_' + row + '_' + i).value = puzzelArrayData[row][i];
+				}else break;
+		}
+		
+		// Print elements below
+		for(m = row; m< puzzelArrayData.length; m++){
+			if(puzzelArrayData[m][column] != 0){
+				document.getElementById('txt' + '_' + m + '_' + column).value = puzzelArrayData[m][column];
+				}else break;
+		}
+		// Print elements on left
+		for(k = column; k >= 0; k--){
+			if(puzzelArrayData[row][k] != 0){
+				document.getElementById('txt' + '_' + row + '_' + k).value = puzzelArrayData[row][k];
+				}else break;
+		}
+		// Done!
+		
+	}
+}
+///$(document).ready(function(){
+//    $("#start").click(function(){
+//       $("div").animate({left: '100px'}, 5000);
+//$("div").animate({fontSize: '3em'}, 5000);
+//    });
+//});
+
+
+</script> 
+
+</head>
+<body onload="initializeScreen()">
+<div id="leftBox">
+<table id="puzzel">
+
+</table>
+</div>
+<div id="rightBox">
+<table>
+	<tr><td><input class="butt"  type="submit" value="Clear All" onclick="clearAllClicked()"></td>
+	<td><input class="butt"  type="submit" value="Check" onclick="checkClicked()"></td>
+	<td><input class="butt"  type="submit" value="Solve" onclick="solveClicked()"></td>
+	<td><input class="butt"  type="submit" value="Clue" onclick="clueClicked()"></td>
+	<td><input class="butt" type="submit" value="Finish" onclick="$('#image1').show()"></td></tr>
+</table>
+</div>
+
+<table id="hintsTable">  
+		<tr>
+			<td><strong>Across:</strong></td><td><strong>Down:</strong></td>
+		</tr>
+		<tr>
+			<td>1. Indian in many an old western</td><td>1. i-Tune store purchases</td></tr>
+		<tr>
+			<td>2. More ritzy</td><td>2. Winnie-the-___</td></tr>
+		<tr>
+			<td>3. Making fun</td><td>3. "___ _  silly question"</td></tr>
+		<tr> <td> 4. Put-ons </td> <td> 4. Interject or butt in </td></tr>
+		<tr><td> 5. Picturesque </td><td> 5. Female chicken </td></tr>
+		<tr><td> 6. Signal to an actor or performer </td><td> 6. Unit of work </td></tr>
+		<tr><td> 7. Subcompact car model from Chevrolet </td><td> 7. Grammarians' concern </td></tr>
+		<tr><td> 8.Aquamarine, Sardonyx, and Tanzanite </td><td> 8. Shot in the dark </td></tr>
+		<tr><td> 9. Sham </td><td> 9. Heart of the Klamath </tr></td> 
+		<tr><td> 10. "Wake me up when September ends" band </td><td> 10. Sock thief </tr></td>
+		<tr><td> 11. ___ the young. LOTR character </td><td> 11. An illegal act </tr></td>
+		<tr><td> 12. Sour dairy product containing casein </td><td> 12. Pinochle and the dix. See 5 across for your second clue </td></tr> 
+		<tr><td> 13. Arcade game manufacturer from 1973 to 1978 </td><td> 13. Descriptive work in poetry dealing with a rustic life </td></tr>
+		<tr><td> 14. Device that utilizes the standard of storing data sets as objects, abbr. </td><td> 14. Bring out of sleep </td></tr> 
+		<tr><td> 15. This organization's logo contains three triangles reflecting "body, mind, and spirit" </td><td> 15. Made a sin </td></tr>
+		<tr><td> 16.  </td><td> 16. "How stupid ___ __!" </td></tr>
+		<tr><td> 17. Definite article </td><td> 17. Lab procedure </td></tr>
+		<tr><td> 18. What speeding cars do around turns </td><td> 18. Bottle alternative </td></tr>
+		<tr><td> 19. Mistreats </td><td> 19. Lincoln family, familiar </td></tr>
+		<tr><td> 20. Stinging plant </td><td> 20. Groove in a road </td></tr>
+		<tr><td>    </td><td> 21. Dog trainer's "Follow!" </td></tr>					
+		
+		
+</table>
+<img id="image1" src="http://www.lovethispic.com/uploaded_images/148577-Happy-Birthday-Im.jpg" style="display:none;" width="600" height="600"/>
+</body>
+</html>
