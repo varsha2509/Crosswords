@@ -49,14 +49,24 @@ td{
 		border: 1px solid black;
 		text-align: center;
 }
+.circle{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+	border: 1px solid black;
+	text-align: center;
+}		
 #hintsTable{
 	width: 480px;
 	float: left;
 	clear: left;
 }
+
 @keyframes animationName {
 from {margin-left:-30%;}
 }
+.word{color:#ff0000;}
+
 </style>
 
 
@@ -74,7 +84,91 @@ function initializeScreen(){
 		var rowData = puzzelArrayData[i];
 		for(var j = 0 ; j < rowData.length ; j++){
 			var cell = row.insertCell(-1);
-			if(rowData[j] != 0){
+			if(i == 6 && j==3){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 6 && j==4){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 6 && j==5){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 6 && j==6){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 6 && j==7){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 7 && j==7){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 8 && j==7){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 9 && j==7){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 10 && j==7){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 10 && j==6){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 10 && j==5){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 1 && j==9){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 1 && j==10){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 1 && j==11){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 1 && j==12){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 1 && j==13){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 1 && j==14){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 9 && j==3){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 10 && j==3){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 11 && j==3){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(i == 12 && j==3){
+				var txtID = String('txt' + '_' + i + '_' + j);
+				cell.innerHTML = '<input type="text" class="circle" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+				}
+			else if(rowData[j] != 0){
 				var txtID = String('txt' + '_' + i + '_' + j);
 				cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
 			}else{
@@ -115,6 +209,7 @@ function addHint(){
 	document.getElementById("txt_10_1").placeholder = "14";
 	document.getElementById("txt_10_2").placeholder = "15";
 	document.getElementById("txt_12_5").placeholder = "16";
+	document.getElementById("txt_10_6").placeholder = "16";
 	document.getElementById("txt_11_5").placeholder = "15";
 	document.getElementById("txt_11_12").placeholder = "17";
 	document.getElementById("txt_12_9").placeholder = "18";
@@ -143,8 +238,8 @@ var items = [	['A', 'P', 'A', 'C', 'H', 'E', 0, 0, 0, 0,0,'U',0,'R',0],
 				['G', 'R', 'E', 'E', 'N', 'D', 'A', 'Y', 0, 0,0,0,0,0,'F'],
 				['E', 'O', 'R', 'L', 0, 'Y', 'M', 'C', 'A', 0,0,0,'T','H','E'],
 				['C', 'U', 'R', 'D', 0, 'L', 'I', 'A', 0, 'C','A','R','E','E','N'],
-				['K', 'E', 'E', 0, 0, 0, 0, 0, 0, 'A','B','U','S','E','S'],
-				['O', 'S', 'D', 0, 0, 0, 0, 0, 0, 'N','E','T','T','L','E']
+				['K', 'E', 'E', 0, 0, 'L', 0, 'M', 0, 'A','B','U','S','E','S'],
+				['O', 'S', 'D', 0, 0, 0, 0, 'P', 0, 'N','E','T','T','L','E']
 			];
 return items;
 }
@@ -226,6 +321,8 @@ function solveClicked(){
 //$("div").animate({fontSize: '3em'}, 5000);
 //    });
 //});
+
+
 </script> 
 
 </head>
@@ -250,7 +347,7 @@ function solveClicked(){
 			<td><strong>Across:</strong></td><td><strong>Down:</strong></td>
 		</tr>
 		<tr>
-			<td>1. Indian in many an old western</td><td>1. i-Tune store purchases</td></tr>
+			<td>1. Indian in many an old Western</td><td>1. i-Tune store purchases</td></tr>
 		<tr>
 			<td>2. More ritzy</td><td>2. Winnie-the-___</td></tr>
 		<tr>
@@ -263,9 +360,9 @@ function solveClicked(){
 		<tr><td> 9. Sham </td><td> 9. Heart of the Klamath </tr></td> 
 		<tr><td> 10. "Wake me up when September ends" band </td><td> 10. Sock thief </tr></td>
 		<tr><td> 11. ___ the young. LOTR character </td><td> 11. An illegal act </tr></td>
-		<tr><td> 12. Sour dairy product containing casein </td><td> 12. Pinochle and the dix. See 5 across for your second clue </td></tr> 
+		<tr><td> 12. Sour dairy product containing casein </td><td> 12. Pinochle and the dix. See 5 across for your second clue. </td></tr> 
 		<tr><td> 13. Arcade game manufacturer from 1973 to 1978 </td><td> 13. Descriptive work in poetry dealing with a rustic life </td></tr>
-		<tr><td> 14. Device that utilizes the standard of storing data sets as objects, abbr. </td><td> 14. Bring out of sleep </td></tr> 
+		<tr><td> 14. Device that utilizes the standard of storing data sets as objects, abbr. </td><td> 14. Old, debauched people </td></tr> 
 		<tr><td> 15. This organization's logo contains three triangles reflecting "body, mind, and spirit" </td><td> 15. Made a sin </td></tr>
 		<tr><td> 16.  </td><td> 16. "How stupid ___ __!" </td></tr>
 		<tr><td> 17. Definite article </td><td> 17. Lab procedure </td></tr>
